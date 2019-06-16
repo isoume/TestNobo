@@ -60,23 +60,19 @@ class ListeFilm extends Component{
 
      render(){ 
        let films =this.data.elements.map(film=>{
-           var imageUrl="../images/iconnu.png"
+           var imageUrl="../iconnu.png"
            if(film.show.image !=null) 
             imageUrl=film.show.image.medium
            return(
 
-                <Card onClick={()=> {this.description(film)} } raised="true" xs="6">
-                    <CardHeader title={film.show.name}/>
+                <Card onClick={()=> {this.description(film)} } raised="true" lg={6} xs={12} >
+                    <CardHeader title={film.show.name} align="center"/>
+
                     <CardMedia  
                             style={stylesCard.media}
                             image	={imageUrl}
                             title={film.show.type}
-                        />
-                
-                        
-                        <CardActions>
-                            
-                        </CardActions>
+                        /> 
                 </Card>
            )
        });

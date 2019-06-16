@@ -3,8 +3,7 @@ import AppBar from '@material-ui/core/AppBar'
 import Toolbar from '@material-ui/core/Toolbar'
 import Typography   from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
-import {Link} from 'react-router-dom'
-
+import {Link} from 'react-router-dom' 
 import { makeStyles } from '@material-ui/styles';
 
 const useStyles = makeStyles({
@@ -19,29 +18,44 @@ const useStyles = makeStyles({
     },
   });
 
-
+var canGoAccueil=false
 
 class Header extends Component{
   
-
+    
  
      render(){
          return(
              <div>
                  <AppBar position="static" color='inherit'>
                       
-                     <Toolbar>
+                     <Toolbar >
                          
                          <Typography variant="button" color="inherit">
                          <Link to="/listFilms"  underline='none'>
-                            <Button  sm="lg"  color='primary'>La liste des films </Button> 
+                            <Button  sm="lg"  color='primary' >La liste des films </Button> 
                          </Link>
+                        {this.accueil()}
                          </Typography>
                      </Toolbar>
                  </AppBar>
              </div>
          );
      }
+
+
+     accueil(){
+         if(canGoAccueil){
+            return(
+                <Button  sm="lg"  color='primary' onClick={() => this.versAccueil()} >La liste des films </Button> 
+            )
+         }
+    }
+
+    versAccueil(){
+        let path = '/';
+        this.props.history.push(path); 
+    }
 }
 
 export default Header;
