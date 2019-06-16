@@ -1,6 +1,6 @@
 import React,{Component} from 'react' 
 import DataLocal from '../services/dataLocal';
-import { Card, CardMedia, CardHeader, CardContent, Typography, Grid } from '@material-ui/core';
+import { Card, CardMedia, CardHeader, Typography, Grid } from '@material-ui/core';
 import Avatar from '@material-ui/core/Avatar'; 
 
 const styles = 
@@ -19,7 +19,7 @@ class DescriptionFilm extends Component{
 
          
          const film= DataLocal.getData()
-         if(film===undefined || film===null){
+         if(film==undefined || film==null){
             return(<div>
                 {  this.props.history.push('/') }
             </div>)
@@ -56,10 +56,14 @@ class DescriptionFilm extends Component{
                 <Grid  lg={6} xs={12}>
                     <Card>
                     <Typography paragraph variant='h3'>
-                            
                             La série est en {film.show.language}
                      </Typography>
                      <Typography paragraph variant='h4'>
+                         { film.show.premiered!=null?"Elle a commencé le " +film.show.premiered:
+                            "La date de commencement nous est inconnue"
+                        } 
+                     </Typography>
+                     <Typography paragraph variant='h5'>
                          { film.show.status=="Ended"?" la série est términée":
                             "Elle tourne toujours"
                         } 
@@ -68,9 +72,9 @@ class DescriptionFilm extends Component{
 
                             {film.show.summary}
                         </Typography>
-                        
-                        </Card>
                         { this.visitSite(film.show.officialSite) }
+                        </Card>
+                        
                 </Grid>
                 <br/><br/><br/><br/>
             </Grid>
@@ -82,9 +86,15 @@ class DescriptionFilm extends Component{
      visitSite(data){
          if(data!=null){
              return(
-                <a href={data} target="_blank">
+                <a href={data} target="_blanck">
                     Visiter le site officiel 
                 </a> 
+             )
+         }else{
+            return(
+                <div>
+                    Cette série n'a plus de lien 
+                </div> 
              )
          }
      }

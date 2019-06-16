@@ -1,5 +1,4 @@
 import React,{Component} from 'react'
-import { makeStyles } from '@material-ui/styles';
 import { Paper, Grid, Card, CardHeader, CardMedia, Typography } from '@material-ui/core';
 
 
@@ -19,6 +18,9 @@ const stylesCard =
 
 class Accueil extends Component{
 
+    constructor(props){
+        super(props)
+    }
     render(){
         return(
             <div> 

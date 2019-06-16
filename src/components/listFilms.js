@@ -1,9 +1,7 @@
 import React,{Component, Fragment} from 'react'
 import CardHeader from '@material-ui/core/CardHeader';
 import Card from '@material-ui/core/Card'
-import { makeStyles } from '@material-ui/styles';
 import CardMedia from '@material-ui/core/CardMedia';
-import CardActions from '@material-ui/core/CardActions';
 import DataLocal from '../services/dataLocal';
 
  

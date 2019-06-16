@@ -7,6 +7,7 @@ import { makeStyles  } from '@material-ui/core/styles';
 const useStyles = makeStyles({
     paper: { 
     textAlign: 'center',
+    border:0
     },
   });
 
@@ -61,7 +62,7 @@ class Footer extends Component{
                 <Paper className={useStyles.paper}>
                 <br/>
                     <a href="https://github.com/isoume" target="_blanck">Profit github du candidat</a>
-                    
+                    <br/> <br/><br/> <br/>
                 </Paper>
             </Grid>
       </Grid>
